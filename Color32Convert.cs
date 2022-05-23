@@ -34,6 +34,6 @@ namespace KiraiMod.Adapter.UIMGUI
             return new Color32(r, g, b, a);
         }
 
-        public static string FromColor32(Color32 color) => $"#{color.r:X}{color.g:X}{color.b:X}{color.a:X}";
+        public static string FromColor32(Color32 color) => $"#{color.r:X2}{color.g:X2}{color.b:X2}{color.a:X2}";
     }
 }
