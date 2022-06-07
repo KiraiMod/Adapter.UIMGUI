@@ -36,7 +36,6 @@ jobs:
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
-            bin/Release/netstandard2.1/Adapter.Wings.dll
-            bin/Release/netstandard2.1/WingAPI.dll
+            bin/Release/netstandard2.1/Adapter.UIMGUI.dll
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
