@@ -28,12 +28,6 @@ namespace KiraiMod.Adapter.UIMGUI
 
         public override void Load()
         {
-            TomlTypeConverter.AddConverter(typeof(Color32), new TypeConverter()
-            {
-                ConvertToObject = (str, type) => Color32Convert.FromString(str),
-                ConvertToString = (obj, type) => Color32Convert.FromColor32((Color32)obj),
-            });
-
             BackgroundColor = Config.Bind<Color32>("Visuals", "Background", new(0x56, 0x00, 0xA5, 0xFF), "What color should the background be?");
             ForegroundColor = Config.Bind<Color32>("Visuals", "Foreground", new(0xFF, 0xFF, 0xFF, 0xFF), "What color should the foreground be?");
 
@@ -67,8 +61,8 @@ namespace KiraiMod.Adapter.UIMGUI
                     groupToggle.Bound.Value = GUILayout.Toggle(groupToggle.Bound._value, element.name, options);
                 else if (element is UIElement<float> groupSlider)
                 {
-                    GUILayout.Label(element.name, options);
                     float val = groupSlider.Bound._value;
+                    GUILayout.Label(element.name + " (" + val + ")", options);
                     groupSlider.Bound.Value = GUILayout.HorizontalSlider(val, val - 10, val + 10, options);
                 }
                 else if (element.GetType() == typeof(UIElement))
